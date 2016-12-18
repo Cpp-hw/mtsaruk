@@ -1,5 +1,5 @@
-release/
-debug/
+Release/
+Debug/
 *.filters
 *.opensdf
 *.sdf
