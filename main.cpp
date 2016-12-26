@@ -6,7 +6,6 @@
 */
 
 // Windows Header Files:
-#include <windows.h>
 #include <stdlib.h>
 #include <iostream>
 #include <sstream>
