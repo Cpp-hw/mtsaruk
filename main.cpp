@@ -7,6 +7,8 @@
 
 // Windows Header Files:
 #include <stdlib.h>
+#include <stdio.h>
+#include <cstring>
 #include <iostream>
 #include <sstream>
 #include <string>
@@ -427,7 +429,7 @@ int main(int argc, char ** argv)
 				while (++i < depth)
 				{
 					int j = -1, range = (depth-i-1)*3-1;
-					while (++j <= (depth-i-1)*3-1) // formated output
+					while (++j <= range) // formated output
 					{
 						cout<<" ";
 					}
@@ -569,7 +571,6 @@ int main(int argc, char ** argv)
 					fDrawSudoku(matrix);
 					fRandomizeSudoku(matrix);
 					res = fIsSudokuInvalid(matrix);
-					Sleep(300);
 				}
 				
 				// draw chosen sudike
