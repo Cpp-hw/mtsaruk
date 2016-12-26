@@ -524,7 +524,6 @@ int main(int argc, char ** argv)
 			{
 				cout<<"You have selected VALIDATE PALINDROME task\n";
 
-				cout<<"\tplease, type needed symbols sequence and press 'enter'\n\t";
 				string str = fGetIO_String("\tplease, type needed symbols sequence and press 'enter'\n\t");
 
 				bool palindrome = true;
