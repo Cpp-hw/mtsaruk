@@ -12,6 +12,29 @@
 #include <list>
 using namespace std;
 
+int fGetIO_Int(const char * message = NULL)
+{
+	if (message != NULL)
+		cout<<message;
+	int number;
+	while (! (cin >> number))
+	{
+		cin.clear();
+		cin.ignore();
+		cout<<"! invalid input ! Try again: "<<endl;
+	}
+	return number;
+}
+string fGetIO_String(const char * message)
+{
+	if (message != NULL)
+		cout<<message;
+	cin.ignore();
+	string str;
+	getline(cin, str, '\n');
+	return str;
+}
+
 void fSwap(int &a, int &b)
 {
 	a = a^b;
@@ -38,8 +61,7 @@ int main(int argc, char ** argv)
 	int user_command = 1;
 	while (user_command)
 	{
-		cout<<"\nInput task number you want to check (0 for exit):\n";
-		cin>>user_command;
+		user_command = fGetIO_Int("\nInput task number you want to check (0 for exit):\n");
 		switch (user_command)
 		{
 			case 0:
@@ -48,9 +70,7 @@ int main(int argc, char ** argv)
 			case 1:
 			{
 				cout<<"You have selected SWAP TASK\n";
-				int a,b;
-				cout<<"\ta = "; cin>>a;
-				cout<<"\tb = "; cin>>b;
+				int a = fGetIO_Int("\ta = "), b = fGetIO_Int("\tb = ");
 				fSwap(a,b);
 				cout<<"\tSWAPPED: a is "<<a<<" now and b is "<<b<<endl;
 				break;
@@ -58,9 +78,8 @@ int main(int argc, char ** argv)
 			case 2:
 			{
 				cout<<"You have selected MULTIPLICATION LOOP task\n";
-				int n;
+				int n = fGetIO_Int("\tn = ");
 				double res = 1.0;
-				cout<<"\tn = "; cin>>n;
 				while (n > 0)
 				{
 					res *= (1.0+1/pow(n,0.25));
@@ -71,9 +90,8 @@ int main(int argc, char ** argv)
 			case 3:
 			{
 				cout<<"You have selected SUM LOOP task\n";
-				int n;
+				int n = fGetIO_Int("\tn = ");
 				double res = 0;
-				cout<<"\tn = "; cin>>n;
 				while (n > 0)
 				{
 					double variant = n%3 ? 3 : n-3;
@@ -100,11 +118,7 @@ int main(int argc, char ** argv)
 			case 5:
 			{
 				cout<<"You have selected CHESS BOARDS COLORS task\n";
-				int m,n,k,l;
-				cout<<"\tm = "; cin>>m;
-				cout<<"\tn = "; cin>>n;
-				cout<<"\tk = "; cin>>k;
-				cout<<"\tl = "; cin>>l;
+				int m = fGetIO_Int("\tm = "), n = fGetIO_Int("\tn = "), k = fGetIO_Int("\tk = "), l = fGetIO_Int("\tl = ");
 				if (fChessBoardColor(m,n,k,l))
 					cout<<"\tselected chess board cells are of the same color\n";
 				else
@@ -121,8 +135,7 @@ int main(int argc, char ** argv)
 				int tmp_p = 0;
 				while (tmp)
 				{
-					cout<<"\t";
-					cin>>tmp;
+					tmp = fGetIO_Int("\t");
 					if (tmp)
 					{
 						diff_sign_qtt += !(cur_sign+tmp/tmp);
@@ -160,20 +173,14 @@ int main(int argc, char ** argv)
 			case 8:
 			{
 				cout<<"You have selected TRIPPLE CONDITION BY DELIMETER task\n";
-				int i,k;
-				cout<<"\ti = "; cin>>i;
-				cout<<"\tk = "; cin>>k;
+				int i = fGetIO_Int("\ti = "),k = fGetIO_Int("\tk = ");
 				cout<<"\tz is "<<fTCByDelimeter(i, k)<<endl;
 				break;
 			}
 			case 9:
 			{
 				cout<<"You have selected CHESS BOARDS COLORS task\n";
-				int m,n,k,l;
-				cout<<"\tm = "; cin>>m;
-				cout<<"\tn = "; cin>>n;
-				cout<<"\tk = "; cin>>k;
-				cout<<"\tl = "; cin>>l;
+				int m = fGetIO_Int("\tm = "), n = fGetIO_Int("\tn = "), k = fGetIO_Int("\tk = "), l = fGetIO_Int("\tl = ");
 
 				int dx = abs(m-k);
 				int dy = abs(n-l);
@@ -195,8 +202,7 @@ int main(int argc, char ** argv)
 			case 11:
 			{
 				cout<<"You have selected NUMBER DELIMETERS task\n";
-				int n;
-				cout<<"\tthe number is: "; cin>>n;
+				int n = fGetIO_Int("\tthe number is: ");
 				int d = 1;
 				int range = n/2+1;
 				while (d < range)
